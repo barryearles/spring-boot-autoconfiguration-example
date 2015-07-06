@@ -30,7 +30,7 @@ See how to test below.
 
 ### Execute
 
-	./gradlew bootRun
+	./gradlew application:bootRun
 
 
 Curl or hit `http://localhost:8080/getdata` in your browser.
