@@ -1,0 +1,82 @@
+description = 'Spring Boot Autoconfiguration Example'
+
+buildscript {
+
+    ext.dependency = [
+        gradleDepManagementPlugin: "${project.gradleDepManagementPluginLib}:${project.gradleDepManagementPluginVersion}",
+        gradlePropdepsPlugin:      "${project.gradlePropdepsPluginLib}:${project.gradlePropdepsPluginVersion}",
+        groovyCompiler:            "${project.groovyCompilerLib}:${project.groovyCompilerVersion}",
+        junit:                     "${project.junitLib}:${project.junitVersion}",
+        spockSpringFramework:      "${project.spockSpringFrameworkLib}:${project.spockSpringFrameworkVersion}",
+        springBootAutoConfigure:   "${project.springBootAutoConfigureLib}:${project.springBootVersion}",
+        springBootConfigProcessor: "${project.springBootConfigProcessorLib}:${project.springBootVersion}",
+        springBootGradlePlugin:    "${project.springBootGradlePluginLib}:${project.springBootVersion}",
+        springBootStarterJetty:    "${project.springBootStarterJettyLib}:${project.springBootJettyVersion}",
+        springBootStarterWeb:      "${project.springBootStarterWebLib}:${project.springBootVersion}",
+        springBootStarterTest:     "${project.springBootStarterTestLib}:${project.springBootVersion}"
+    ]
+
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://repo.spring.io/libs-release'
+        }
+        maven {
+            url 'http://repo.spring.io/simple/jcenter-cache'
+        }
+        maven {
+            url 'http://repo.spring.io/simple/plugins-release-local'
+        }
+    }
+
+    dependencies {
+        classpath(
+            dependency.springBootGradlePlugin,
+            dependency.gradleDepManagementPlugin,
+            dependency.gradlePropdepsPlugin
+        )
+    }
+}
+
+allprojects {
+
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'maven'
+
+    eclipse {
+        classpath {
+            containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+            containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+        }
+    }
+}
+
+subprojects {
+
+    version = project.springBootAutoconfigureExampleVersion
+
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+    apply plugin: 'propdeps'
+    apply plugin: 'propdeps-maven'
+    apply plugin: 'propdeps-idea'
+    apply plugin: 'propdeps-eclipse'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://repo.spring.io/libs-release'
+        }
+        maven {
+            url 'http://repo.spring.io/simple/jcenter-cache'
+        }
+        maven {
+            url 'http://repo.spring.io/simple/plugins-release-local'
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}

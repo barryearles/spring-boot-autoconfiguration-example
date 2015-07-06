@@ -1,0 +1,9 @@
+jar {
+    baseName = "${project.parent.name}-${project.name}"
+}
+
+dependencies {
+    compile (
+        dependency.springBootStarterWeb
+    )
+}

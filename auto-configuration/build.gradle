@@ -1,0 +1,20 @@
+jar {
+    baseName = "${project.parent.name}-${project.name}"
+}
+
+dependencies {
+    compile(
+        project(':service'),
+        dependency.springBootAutoConfigure
+    )
+
+    testCompile(
+        dependency.groovyCompiler,
+        dependency.spockSpringFramework,
+        dependency.springBootStarterTest
+    )
+
+    optional dependency.springBootConfigProcessor
+}
+
+compileJava.dependsOn(processResources)

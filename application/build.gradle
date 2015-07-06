@@ -1,0 +1,28 @@
+apply plugin: 'spring-boot'
+
+mainClassName = 'SpringBootAutoconfigureExampleApplciation'
+
+dependencies {
+    compile dependency.springBootStarterJetty,
+    compile(dependency.springBootStarterWeb) {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+
+    runtime(
+        project(':service'),
+        project(':auto-configuration')
+    )
+}
+
+jar.doFirst {
+    manifest {
+        attributes(
+                'Implementation-Title': project.name,
+                'Implementation-Version': project.version
+        )
+    }
+}
+
+jar {
+    baseName = "${project.parent.name}-${project.name}"
+}
