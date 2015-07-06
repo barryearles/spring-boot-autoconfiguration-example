@@ -1,4 +1,4 @@
-rootProject.name = 'spring-boot-autoconfigure-example'
+rootProject.name = 'spring-boot-autoconfiguration-example'
 
 include 'application',
         'auto-configuration',

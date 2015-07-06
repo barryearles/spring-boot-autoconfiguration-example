@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals
     classes = ServiceConfiguration,
     loader = SpringApplicationContextLoader
 )
-class ExampleControllerAutoConfigSpec extends Specification {
+class AutoConfigSpec extends Specification {
 
     @Autowired
     AnnotationConfigApplicationContext applicationContext

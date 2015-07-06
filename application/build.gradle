@@ -1,6 +1,6 @@
 apply plugin: 'spring-boot'
 
-mainClassName = 'SpringBootAutoconfigureExampleApplciation'
+mainClassName = 'com.example.autoconfigure.SpringBootAutoconfigureExampleApplication'
 
 dependencies {
     compile dependency.springBootStarterJetty,

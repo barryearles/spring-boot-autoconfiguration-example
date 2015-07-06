@@ -11,10 +11,10 @@ import spock.lang.Specification
 import static org.junit.Assert.assertEquals
 
 @ContextConfiguration(
-    classes = ExampleControllerAutoConfigOverrideSpec.OverrideResultConfiguration,
+    classes = AutoConfigOverrideSpec.OverrideResultConfiguration,
     loader = SpringApplicationContextLoader
 )
-class ExampleControllerAutoConfigOverrideSpec extends Specification {
+class AutoConfigOverrideSpec extends Specification {
 
     @Autowired
     AnnotationConfigApplicationContext applicationContext
