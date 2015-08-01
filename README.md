@@ -1,7 +1,6 @@
 
 #Spring Boot Auto-Configuration Example
 
----
 Providing auto configuration for your project provides a user friendly experience for anyone wishing to include your library in their project.  The auto configuration contains all of the necessary configuration required to quickly set up a configured environment.
 
 This example consists of 3 submodules (serivce, auto-configuration, and application).
